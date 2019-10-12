@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{Title}}</title>
+
+    <!-- jquery -->
+    <script src="/3rdParty/jquery-1.11.3.min.js"></script>
+
+    <!--  -->
+    <link rel="stylesheet" href="/3rdParty/jQuery-Validation-Engine/css/validationEngine.jquery.css"/>
+    <script src="/3rdParty/jQuery-Validation-Engine/js/languages/jquery.validationEngine-zh_TW.js"></script>
+    <script src="/3rdParty/jQuery-Validation-Engine/js/jquery.validationEngine.js"></script>
+
+    <!-- materialize -->
+    <!--<link rel="stylesheet" href="/3rdParty/materialize/css/materialize.min.css"/>-->
+    <link rel="stylesheet" href="/3rdParty/materialize/css/ghpages-materialize.css"/>
+    <link rel="stylesheet" href="/3rdParty/materialize/fonts/MaterialIcons.css"/>
+    <script src="/3rdParty/materialize/js/materialize.min.js"></script>
+
+    <!-- Loading -->
+    <link rel="stylesheet" href="/3rdParty/jQuery-showLoading/loading.css"/>
+    <script src="/3rdParty/jQuery-showLoading/jquery.loading.js"></script>
+
+    <!-- jBox -->
+    <link rel="stylesheet" href="/3rdParty/jBox-0.6.3/dist/jBox.all.css"/>
+    <script src="/3rdParty/jBox-0.6.3/dist/jBox.all.js"></script>
+
+    <!---->
+    <link rel="stylesheet" href="/page/Layout/Store.css"/>
+</head>
+
+<body>
+
+<header>
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1">
+                        <h1 class="header" id="header">{Header}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+    </div>
+
+    <ul id="nav-mobile" class="sidenav sidenav-fixed">
+        <li class="logo">
+            <a id="logo-container" href="javascript:void(0);" class="brand-logo">
+                <img src="/page/img/logo.png" style="width: 64px;"/>
+            </a>
+        </li>
+        <li class="bold {Store/Device}"><a href="?a=Store/Device" class="waves-effect waves-teal {}">裝置管理</a></li>
+        <li class="no-padding LoginYes">
+            <ul class="">
+                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><span class="userName">{UserName}</span><!--<span class="badge material-icons">chevron_left</span>--></a>
+                    <div class="">
+                        <ul>
+                            <li><a href="color.html">Color</a></li>
+                            <li><a href="javascript:void(0);" onclick="logout()">登出</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="LoginNo">
+            <a href="javascript:void(0);" onclick="login()">登入</a>
+        </li>
+
+    </ul>
+
+</header>
+
+<main>
+    {Content}
+</main>
+
+<script>
+    var PageCount = '{{PageCount}}';
+</script>
+<script src="/page/Layout/Store.js?v=::version::"></script>
+
+</body>
+</html>

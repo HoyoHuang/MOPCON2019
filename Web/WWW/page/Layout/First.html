@@ -1,0 +1,114 @@
+
+<div>
+
+    <!-- 已登入 -->
+    <div class="LoginYes">
+    </div>
+
+    <!-- 未登入 -->
+    <div class="LoginNo">
+    </div>
+
+    <div class="row container">
+        <h2 class="">說明文件</h2>
+
+        <div class="col s12 m9 l19">
+            <div id="introduction" class="section scrollSpy">
+                <h3 class="header">ESP8266 上傳 SN</h3>
+                <p></p>
+                <pre class="code" style="height: 500px; line-height: 1.2;">#include &lt;EEPROM.h&gt;
+
+const char* SN = &quot;0000111122223333&quot;; //MAX 32
+
+void setup() {
+     Serial.begin(115200);
+     EEPROM_ESP8266_GRABAR(SN, 64); //Primero de 0 al 32, del 32 al 64, etc
+     Serial.println();
+     Serial.println(EEPROM_ESP8266_LEER(0, 32));//Primero de 0 al 32, del 32 al 64, etc
+     Serial.println(EEPROM_ESP8266_LEER(32, 64));
+     Serial.println(EEPROM_ESP8266_LEER(64, 96));//Primero de 0 al 32, del 32 al 64, etc
+}
+
+void loop() {}
+
+void EEPROM_ESP8266_GRABAR(String buffer, int N) {
+     EEPROM.begin(512); delay(10);
+     for (int L = 0; L &lt; 32; ++L) {
+       EEPROM.write(N + L, buffer[L]);
+     }
+     EEPROM.commit();
+}
+
+String EEPROM_ESP8266_LEER(int min, int max) {
+     EEPROM.begin(512); delay(10); String buffer;
+     for (int L = min; L &lt; max; ++L)
+       if (isAlphaNumeric(EEPROM.read(L)))
+         buffer += char(EEPROM.read(L));
+     return buffer;
+}</pre>
+            </div>
+
+            <div id="structure" class="section scrollSpy">
+                <h3 class="header">ESP8266 上傳主程式(韌體)</h3>
+                <p>使用自己的 Arduino 程式即可，SN 使用 EEPROM_ESP8266_LEER(64, 96) 取得</p>
+                <p>上傳燒錄不會覆蓋到 EEPROM</p>
+            </div>
+
+        </div>
+
+        <!--  -->
+        <div class="col hide-on-small-only m3 l3">
+            <ul class="section table-of-contents">
+                <li><a href="#introduction">ESP8266 上傳 SN</a></li>
+                <li><a href="#structure">ESP8266 上傳主程式(韌體)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row container">
+        <h2 class="">消費者綁定 IoT 及使用</h2>
+
+        <div class="col s12 m9 l19">
+            <div id="user-a" class="section scrollSpy">
+                <h3 class="header">使用 HoyoIoT APP 綁定 IoT</h3>
+                <p></p>
+            </div>
+
+            <div id="user-b" class="section scrollSpy">
+                <h3 class="header">控制開關</h3>
+                <p>Content </p>
+            </div>
+
+            <div id="user-c" class="section scrollSpy">
+                <h3 class="header">查看數據</h3>
+                <p>Content </p>
+            </div>
+
+            <div id="user-d" class="section scrollSpy">
+                <h3 class="header">設定情境</h3>
+                <p>Content </p>
+            </div>
+
+        </div>
+
+        <!--  -->
+        <div class="col hide-on-small-only m3 l3">
+            <ul class="section table-of-contents">
+                <li><a href="#user-a">使用 HoyoIoT APP 綁定 IoT</a></li>
+                <li><a href="#user-b">控制開關</a></li>
+                <li><a href="#user-c">查看數據</a></li>
+                <li><a href="#user-d">設定情境</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+    // 程式碼高亮
+    $('pre.code').each(function(k,v){
+        hljs.highlightBlock(v);
+    });
+</script>

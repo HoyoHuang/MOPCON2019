@@ -1,0 +1,99 @@
+
+<link rel="stylesheet" href="/page/User/IoT.css"/>
+
+<div class="container">
+
+    <div style="padding: 8px;"></div>
+
+    <!--<hr/>-->
+
+    <div style="height: 50px; line-height: 50px; padding-left: 16px;">
+        <div id="breadcrumbs" class="col s12">
+            <button class="waves-effect waves-red btn-flat" onclick="back()">返回</button>
+        </div>
+    </div>
+
+    <!-- idDeviceList -->
+    <div class="row page" id="page_DeviceList"></div>
+
+</div>
+
+<!-- Page DeviceControl -->
+<section id="page_DeviceControl" class="page" style="display: none;">
+    <div class="container center Name" style="margin: 8px 0 16px; width: 100%; font-size: 24px; font-weight: bold;"></div>
+
+    <div id="showPushSwitch" style="display: none;"></div>
+
+    <div id="templatePushSwitch" style="display: none;">
+        <div class="row">
+            <div class="col s12 center" style="height: 300px;">
+                <button class="btn-floating btn-large waves-effect waves-light grey darken-1" style="width: 300px; height: 300px;" onclick="pushSwitch('{id}', '{io}', this)"><i class="material-icons" style="line-height: 300px; font-size: 120px;">power_settings_new</i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Page DeviceControl -->
+<section id="page_DeviceData" class="page" style="display: none;">
+
+    <div id="realTimeData"></div>
+
+    <div class="demo-container">
+        <!--<div id="plot"></div>-->
+        <div id="placeholder" class="demo-placeholder"></div>
+    </div>
+
+</section>
+
+<!--  -->
+<div id="templateDeviceList" style="display: none;">
+    <div class="col s12 m6" style="">
+
+        <div class="card" style="margin: 8px; border:1px solid #ddd;">
+            <div style="height: 65px; padding: 12px;" class="card-title DeviceName">{Name}</div>
+
+            <div class="card-action">
+                <a href="javascript:void(0);" onclick="deviceEdit('{id}')">編輯</a>
+            </div>
+
+            <div class="" style="height: 45px;">
+                <div id="buttonControl" class="btn waves-effect col light-green darken-3" style="height: 45px; line-height: 45px;" onclick="deviceControl('{id}', '{Name}', '{column_io}')"><i class="material-icons" style="vertical-align: bottom;">power_settings_new</i> 開關</div>
+                <div id="buttonData" class="btn waves-effect col orange darken-3" style="height: 45px; line-height: 45px;" onclick="deviceData('{id}', '{Name}', '{column_data}')"><i class="material-icons" style="vertical-align: bottom;">show_chart</i> 資料</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新增 -->
+<div id="modalEdit" class="modal">
+
+    <div class="modal-content">
+
+        <form id="idFormEdit" class="col s12">
+
+            <input type="hidden" name="id"/>
+
+            <div class="row margin-bottom-0">
+                <div class="input-field col s12">
+                    <input id="id_Edit_Name" type="text" name="Name" class="" data-validation-engine="validate[required]">
+                    <label for="id_Edit_Name">名稱</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">check_circle</i> 確定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="modal-close waves-effect waves-green btn-flat">關閉</a>
+    </div>
+
+</div>
+
+<script>
+    var userId = '{userId}';
+</script>
+<script src="/page/User/IoT.js?v=::version::"></script>

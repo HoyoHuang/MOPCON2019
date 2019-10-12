@@ -1,0 +1,217 @@
+<style>
+    label {
+        font-weight: 300;
+        letter-spacing: 0.025em;
+        color: #394a5a;
+    }
+    .input-switch {
+        display: inline-block;
+    }
+    .input-switch .input {
+        position: absolute;
+        visibility: hidden;
+    }
+    .input-switch .input + .switch {
+        position: relative;
+        height: 10px;
+        width: 45px;
+        margin-right: 15px;
+        margin-left: 15px;
+        border-radius: 10px;
+        background-color: #e4ecfa;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+        transition: 0.3s 0.05s;
+    }
+    .input-switch .input + .switch::before, .input-switch .input + .switch::after {
+        content: "";
+        position: absolute;
+        transition: 0.35s;
+    }
+    .input-switch .input + .switch::before {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 20%;
+        border-radius: 10px;
+        background-color: #739ce6;
+    }
+    .input-switch .input + .switch::after {
+        left: 5px;
+        top: 50%;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: none;
+        background-color: #cad9f5;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    .input-switch .input + .switch:hover::after {
+        transform: translateY(-50%) scale(1.1);
+    }
+    .input-switch .input:checked + .switch {
+        background-color: #fadfe0;
+    }
+    .input-switch .input:checked + .switch::before {
+        width: calc(100% - 5px);
+        background-color: #e65a62;
+    }
+    .input-switch .input:checked + .switch::after {
+        left: calc(100% - (20px + 5px));
+        background-color: #f3b3b6;
+    }
+</style>
+
+<div class="container">
+
+    <div style="padding: 8px;"></div>
+
+    <!--<hr/>-->
+
+    <div style="height: 50px; line-height: 50px; padding-left: 16px;">
+        <button class="waves-effect waves-red btn-flat" onclick="add()"><i class="material-icons left">add</i>新增</button>
+    </div>
+
+    <!-- idDeviceList -->
+    <div class="row" id="page_Search"></div>
+
+</div>
+
+<!-- template search -->
+<div id="templateSearch" style="display: none;">
+    <div class="col s12 m6" style="margin-bottom: 20px;">
+        <div style="padding: 16px; border: 1px solid #999; border-radius: 8px; height: 144px; ">
+            <div>
+                <button class="btn waves-effect waves-red blue lighten-5 black-text col s12" style="height: 60px;" onclick="action('{Token}')">{Name}</button>
+            </div>
+
+            <!-- href="#modal1" -->
+            <div style="float: right; ">
+                <ul class="action-line">
+                    <li><button type="button" class="btn-floating btn waves-effect waves-light amber darken-3 toolTipped" data-position="bottom" data-tooltip="API URL" onclick="showLinkURL('{LinkURL}')"><i class="material-icons">attach_file</i></button></li>
+                    <li><button type="button" class="btn-floating green darken-1 toolTipped" data-position="bottom" data-tooltip="編輯" onclick="edit('{id}')"><i class="material-icons">edit</i></button></li>
+                    <li><button type="button" class="btn-floating red toolTipped" data-position="bottom" data-tooltip="刪除" onclick="del('{id}')"><i class="material-icons">delete</i></button></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--  -->
+<div id="modalAdd" style="display: none;">
+    <div>
+
+        <form id="idFormAdd" class="col s12">
+            <div class="row margin-bottom-0">
+                <div class="input-field col s12">
+                    <input id="id_Add_Name" type="text" name="Name" class="" data-validation-engine="validate[required]">
+                    <label for="id_Add_Name">名稱</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">check_circle</i> 新增</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<!--  -->
+<div id="modalEdit" style="display: none;">
+    <div>
+
+        <form id="idFormEdit" class="col s12">
+
+            <input type="hidden" name="id"/>
+
+            <div class="row margin-bottom-0">
+                <div class="input-field col s12">
+                    <input id="id_Edit_Name" type="text" name="Name" class="" data-validation-engine="validate[required]">
+                    <label for="id_Edit_Name">名稱</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">check_circle</i> 儲存</button>
+
+                </div>
+            </div>
+        </form>
+
+        <!--  -->
+        <div class="row">
+            <div class="col s6">
+                <div id="iot_all_list"></div>
+            </div>
+            <div class="col s6" style=" border-left: 1px solid #999;">
+                <div id="iot_list"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--  -->
+<div id="templateSelectDevice" style="display: none;">
+    <div>
+        <div>{Name}</div>
+        <div style="float: left;">
+            <div class="input-switch" style="margin-bottom: 16px;">
+                <label for="switchSelect_{id}">關</label>
+                <input type="checkbox" id="switchSelect_{id}" class="input" name="switchSelect" />
+                <label for="switchSelect_{id}" class="switch"></label>
+                <label for="switchSelect_{id}">開</label>
+            </div>
+        </div>
+
+        <div style="float: left; margin-left: 16px;">
+            <button type="button" class="btn-small" onclick="assignSelect('{id}', this)"><i class="material-icons">chevron_right</i></button>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+
+<!--  -->
+<div id="templateDevice" style="display: none;">
+    <div class="">
+    <div>{Name}</div>
+    <div style="float: left;">
+
+        <div class="input-switch" style="margin-bottom: 16px;">
+            <label for="switch_{id}">關</label>
+            <input type="checkbox" id="switch_{id}" class="input" name="switch" onchange="assignChange('{id}', this)" />
+            <label for="switch_{id}" class="switch"></label>
+            <label for="switch_{id}">開</label>
+        </div>
+    </div>
+    <div style="float: left; margin-left: 16px;">
+        <button type="button" class="btn-small red" onclick="assignDelete('{id}', this)"><i class="material-icons">delete</i></button>
+    </div>
+    <div style="clear: both;"></div>
+    </div>
+</div>
+
+<!--  -->
+<div id="modalLinkURL" class="modal">
+    <div class="modal-content">
+        <h4>HTTP API</h4>
+        <label for="idLinkURL"><input type="text" id="idLinkURL"/></label>
+        <p style="text-align: right;"><button type="button" class="btn-floating" onclick="copyLinkURL()"><i class="material-icons">content_copy</i></button></p>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="modal-close waves-effect waves-green btn-flat">關閉</a>
+    </div>
+</div>
+
+<script>
+    var userId = '{userId}';
+</script>
+<script src="/page/User/Situation.js?v=::version::"></script>

@@ -1,0 +1,203 @@
+
+<link rel="stylesheet" href="/page/User/IoT.css"/>
+
+<div class="container">
+
+    <div class="demo-container">
+
+        <!--<div class="row" id="idDeviceList"></div>-->
+
+        <div style="margin-top: 8px;">
+            <button class="btn white black-text" onclick="SearchArea(this)"><i class="material-icons right">expand_more</i>搜尋條件</button>
+        </div>
+        <div id="idTotalNumber">0</div>
+
+        <div id="idSearchArea" >
+            <form id="idSearchForm">
+                <table class="SearchTable">
+                    <tbody>
+                    <tr><td width="25%"></td><td width="25%"></td><td width="25%"></td><td width="25%"></td></tr>
+
+                    <tr>
+                        <td>
+                            <label>名稱: <input type="text" name="" class=" inputStyle" style="width:calc(100% - 60px);"/></label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                        </td>
+                        <td style="text-align: right;">
+                            <button type="button" onclick="ResetSearchForm(this)" class="btn waves-effect amber darken-3">清空</button>
+                            <button type="button" onclick="search(1)" class="btn waves-effect light-blue darken-3">搜尋</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <hr style="margin: 16px 0;"/>
+
+        <button type="button" class="waves-effect waves-light btn" onclick="addDevice()"><i class="material-icons left">add_box</i> 新增</button>
+
+        <table class="responsive-table" style="margin: 16px 0;">
+            <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th>建立時間</th>
+                <th>綁定會員</th>
+                <th>SN</th>
+                <th>名稱</th>
+                <th>Data</th>
+                <th>IO</th>
+                <th class="text-center">%</th>
+            </tr>
+            </thead>
+            <tbody id="searchDevice"></tbody>
+        </table>
+
+        <div class="PageControl" style="display: none;">
+            <ul class="pagination"></ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- 裝置內頁 -->
+<div id="modalDevice" style="display: none;">
+    <div class="row">
+        <div class="col s8">
+            <div>999</div>
+        </div>
+        <div class="col s4">
+            <div class="can-toggle">
+                <input id="a" type="checkbox" name="aaa" onclick="switchPower(this)">
+                <label for="a">
+                    <span class="can-toggle__switch" data-checked="On" data-unchecked="Off"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="demo-container">
+        <div id="placeholder" class="demo-placeholder"></div>
+    </div>
+
+</div>
+
+<!--  -->
+<div id="templateDeviceList" style="display: none;">
+    <div class="col s12 m6" style=" height:120px;">
+
+        <div class="card" style="margin: 8px; border:1px solid #ddd;">
+            <div style="height: 65px; padding: 12px;" class="card-title DeviceName"></div>
+
+            <div class="card-action">
+                <a href="javascript:void(0);" onclick="deviceEdit('{token}')">編輯</a>
+                <!--<a href="javascript:void(0);" onclick="device('{token}')">檢視</a>-->
+                <!--<a href="javascript:void(0);" onclick="deviceDel('{token}')">刪除</a>-->
+            </div>
+
+            <div class="" style="height: 45px;">
+                <div id="buttonControl" class="btn waves-effect col light-green darken-3" style="height: 45px; line-height: 45px;" onclick="deviceControl('{id}', '{Name}', '{column_io}')"><i class="material-icons" style="vertical-align: bottom;">power_settings_new</i> 開關</div>
+                <div id="buttonData" class="btn waves-effect col orange darken-3" style="height: 45px; line-height: 45px;" onclick="deviceData('{id}', '{column_data}')"><i class="material-icons" style="vertical-align: bottom;">show_chart</i> 資料</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 新增 -->
+<div id="modalAdd" style="display: none;">
+
+    <form id="idFormAdd" class="col s12">
+
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="idAddName" type="text" name="Name" class="" data-validation-engine="validate[required]">
+                <label for="idAddName">名稱</label>
+            </div>
+        </div>
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="id_Add_SN" type="text" name="SN" class="" data-validation-engine="validate[required]">
+                <label for="id_Add_SN">SN</label>
+            </div>
+        </div>
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="idAddDataColumn" type="text" name="DataColumn" class="" placeholder="ex: a,b,c ...">
+                <label for="idAddDataColumn">資料收集欄位</label>
+
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="idAddDigitalIO" type="text" name="DigitalIO" class="" placeholder="pin ex: 2,4 ...">
+                <label for="idAddDigitalIO">I/O 開關</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">check_circle</i> 確定</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<!-- 修改 -->
+<div id="modalEdit" style="display: none;">
+
+    <form id="idFormEdit" class="col s12">
+
+        <input type="hidden" name="id"/>
+
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="id_Edit_Name" type="text" name="Name" class="" data-validation-engine="validate[required]">
+                <label for="id_Edit_Name">名稱</label>
+            </div>
+        </div>
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="id_Edit_SN" type="text" name="SN" class="" data-validation-engine="validate[required]">
+                <label for="id_Edit_SN">SN</label>
+            </div>
+        </div>
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="id_Edit_DataColumn" type="text" name="DataColumn" class="" placeholder="ex: a,b,c ...">
+                <label for="id_Edit_DataColumn">資料收集欄位</label>
+
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="row margin-bottom-0">
+            <div class="input-field col s12">
+                <input id="id_Edit_DigitalIO" type="text" name="DigitalIO" class="" placeholder="pin ex: 2,4 ...">
+                <label for="id_Edit_DigitalIO">I/O 開關</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button type="submit" class="btn waves-effect waves-light"><i class="material-icons left">check_circle</i> 儲存</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script src="/page/Store/Device.js?v=::version::"></script>

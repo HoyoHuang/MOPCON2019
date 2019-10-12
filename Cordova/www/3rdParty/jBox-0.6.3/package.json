@@ -1,0 +1,50 @@
+{
+  "name": "jbox",
+  "version": "0.6.3",
+  "description": "jBox is a jQuery plugin that makes it easy to create customizable tooltips, modal windows, image galleries and more.",
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "tooltip",
+    "modal",
+    "window",
+    "dialog",
+    "confirm",
+    "popup",
+    "notice",
+    "alert",
+    "ui",
+    "images",
+    "lightbox"
+  ],
+  "homepage": "https://stephanwagner.me/jBox",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StephanWagner/jBox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StephanWagner/jBox/issues",
+    "email": "stephanwagner.me@gmail.com"
+  },
+  "author": "Stephan Wagner <stephanwagner.me@gmail.com> (https://stephanwagner.me)",
+  "license": "MIT",
+  "main": "dist/jBox.js",
+  "types": "src/js/jBox.d.ts",
+  "dependencies": {
+    "jquery": "^3.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "jest": "^24.7.1",
+    "unscroll": "^1.0.5"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

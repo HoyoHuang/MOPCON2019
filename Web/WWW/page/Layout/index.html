@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
+    <title>Hoyo IOT 控制</title>
+
+    <script src="/3rdParty/jquery-1.11.3.min.js"></script>
+
+    <!--<link rel="stylesheet" href="/3rdParty/materialize/css/materialize.min.css"/>-->
+    <link rel="stylesheet" href="/3rdParty/materialize/css/ghpages-materialize.css"/>
+    <link rel="stylesheet" href="/3rdParty/materialize/fonts/MaterialIcons.css"/>
+    <script src="/3rdParty/materialize/js/materialize.min.js"></script>
+
+    <script src="/page/js/php.js?v=::version::"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCShFCtDpn22IZ0mq5sOwtW03w7Ovs7Ecs&libraries=geometry"></script>
+
+    <!-- jQuery-Validation-Engine -->
+    <link rel="stylesheet" href="/3rdParty/jQuery-Validation-Engine/css/validationEngine.jquery.css"/>
+    <script src="/3rdParty/jQuery-Validation-Engine/js/languages/jquery.validationEngine-zh_TW.js"></script>
+    <script src="/3rdParty/jQuery-Validation-Engine/js/jquery.validationEngine.js"></script>
+
+    <!-- jBox -->
+    <link rel="stylesheet" href="/3rdParty/jBox-0.4.9/Source/jBox.css"/>
+    <script src="/3rdParty/jBox-0.4.9/Source/jBox.min.js"></script>
+
+    <!--  -->
+    <link rel="stylesheet" href="/3rdParty/jquery.scrollbar-gh-pages/jquery.scrollbar.css"/>
+    <script src="/3rdParty/jquery.scrollbar-gh-pages/jquery.scrollbar.js"></script>
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="/3rdParty/highlight/styles/monokai-sublime.css"/>
+    <script src="/3rdParty/highlight/highlight.pack.js"></script>
+
+    <!--  -->
+    <script src="/3rdParty/jquery.flot/jquery.flot.min.js"></script>
+    <script src="/3rdParty/jquery.flot/jquery.flot.time.min.js"></script>
+    <!--<script src="/3rdParty/jquery.flot/jquery.flot.axislabels.js"></script>-->
+    <!--<script src="/3rdParty/jquery.flot/jquery.flot.symbol.min.js"></script>-->
+
+    <!---->
+    <link rel="stylesheet" href="/page/Layout/Front.css"/>
+</head>
+
+<body>
+<header>
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1">
+                        <h1 class="header" id="header">{Header}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+    </div>
+
+    <ul id="nav-mobile" class="sidenav sidenav-fixed">
+        <li class="logo">
+            <a id="logo-container" href="javascript:void(0);" class="brand-logo">
+                <img src="/page/img/logo-64.png" style="width: 64px;"/>
+            </a>
+        </li>
+
+        <!--<li class="bold {Store/Device}"><a href="?a=Store/Device" class="waves-effect waves-teal {}">裝置管理</a></li>-->
+
+        <li class="no-padding LoginYes">
+            <ul class="">
+                <li class="bold"><a class="collapsible-header"><span class="userName">說明</span></a>
+                    <div class="">
+                        <ul>
+                            <li class="{}"><a href="/"><span class="menu-chevron material-icons">chevron_right</span> {menu/Help/Document}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="no-padding LoginYes">
+            <ul class="">
+                <li class="bold"><a class="collapsible-header"><span class="userName">商家</span></a>
+                    <div class="">
+                        <ul>
+                            <li class="{Store/Device}"><a href="?a=Store/Device"><span class="menu-chevron material-icons">chevron_right</span> {menu/Store/Device}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="no-padding LoginYes">
+            <ul class="">
+                <li class="bold"><a class="collapsible-header"><span class="userName">{UserName}</span> <span style="font-size: 13px;">({UserEmail})</span><!--<span class="badge material-icons">chevron_left</span>--></a>
+                    <div class="">
+                        <ul>
+                            <li class="{User/Situation}"><a href="?a=User/Situation"><span class="menu-chevron material-icons">chevron_right</span> {menu/User/Situation}</a></li>
+                            <li class="{User/IoT}"><a href="?a=User/IoT"><span class="menu-chevron material-icons">chevron_right</span> {menu/User/IoT}</a></li>
+                            <!--<li><a href="/?a=User/WalkGPS"><span class="menu-chevron material-icons">chevron_right</span> WalkGPS</a></li>-->
+                            <li class=""><a href="?a=Logout"><span class="menu-chevron material-icons">chevron_right</span> 登出</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="LoginNo">
+            <a href="//member.hoyo.idv.tw?GoBack=//iot.hoyo.idv.tw">登入</a>
+        </li>
+
+    </ul>
+
+</header>
+
+<main>
+    {Content}
+</main>
+
+<div id="modalLogout" style="display: none;">
+    <div id="GoogleLogout">
+        <a href="javascript:void(0);"><i class="fa fa-2x fa-google-plus-square"></i> Google 登出</a>
+    </div>
+</div>
+
+<!--ModalLoginYes-->
+<div id="ModalLoginYes" style="display: none;">
+    <div style="padding: 4px 12px;">
+        <!--<div><a href="javascript:void(0);" onclick="friend()">好友</a></div>-->
+        <div><a href="?a=Store/Dock" target="_blank">店家</a></div>
+        <div><a href="?a=Logout">登出</a></div>
+    </div>
+</div>
+
+<!--  -->
+<div id="modalDeviceList" style="display: none;">
+    <div></div>
+</div>
+
+<script src="/page/Layout/Front.js?v=::version::"></script>
+</body>
+</html>
