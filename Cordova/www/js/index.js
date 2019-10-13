@@ -23,10 +23,6 @@ $.each($lang, function(k,v){
 
 $('#content').html($bodyHtml);
 
-// test
-// window.localStorage.displayName = 'aaa';
-// window.localStorage.userId = '101164824208299174183';
-
 //
 document.addEventListener("deviceready", function(){
 
@@ -182,13 +178,6 @@ function logout(){
 
     $('.LoginYes').hide();
     $('.LoginNo').show();
-
-    // window.plugins.googleplus.disconnect(
-    //     function (msg) {
-    //         alert(msg); // do something useful instead of alerting
-    //
-    //     }
-    // );
 }
 
 //
@@ -405,12 +394,6 @@ function device($id){
         }
     });
 
-    // var m = $('#modalDevice');
-    // m.width(window.innerWidth -80).height(400);
-    // Modal.setContent(m);
-    // Modal.setTitle('修改');
-    // Modal.open();
-
 }
 
 //
@@ -472,9 +455,7 @@ function pushSwitch($id, $pin, obj){
             var h = '';
             var ioh = '';
             if ( json['Result']===true ){
-
                 v = json['Data'];
-
             }
 
             else{
