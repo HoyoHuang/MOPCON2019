@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang=lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>致敬「米家」 - Hoyo</title>
+
+    <!-- materialize -->
+    <link rel="stylesheet" href="3rd/materialize/css/materialize.css"/>
+    <link rel="stylesheet" href="3rd/materialize/fonts/MaterialIcons.css"/>
+    <script src="3rd/materialize/js/materialize.min.js"></script>
+
+    <!---->
+    <script src="3rd/jquery-1.11.3.min.js"></script>
+    <script src="3rd/php.js"></script>
+
+    <!-- reveal.js -->
+    <link rel="stylesheet" href="3rd/reveal.js-master/css/reveal.css">
+    <link rel="stylesheet" href="3rd/reveal.js-master/css/theme/sky.css">
+    <script src="3rd/reveal.js-master/js/reveal.js"></script>
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="3rd/highlight/styles/monokai-sublime.css"/>
+    <script src="3rd/highlight/highlight.pack.js"></script>
+
+    <!--  -->
+    <link rel="stylesheet" href="3rd/jquery.barrager.js-master/dist/css/barrager.css"/>
+    <script src="3rd/jquery.barrager.js-master/dist/js/jquery.barrager.min.js"></script>
+
+    <!--  -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <style>
+        .hljs-comment,.hljs-deletion,.hljs-meta,.code.hljs.xml>span,.code.hljs.php>span{
+            font-weight: normal !important;
+        }
+        html, body, *{
+            font-family: "微軟正黑體", Arial, sans-serif ;
+            /*font-size: 16px;*/
+            font-weight: bold;
+
+        }
+        section h3,.reveal h3{
+            text-shadow: 2px 4px 4px #a4a4a4 !important;
+            color: #252384 !important;
+            font-weight: bold;
+        }
+        .title1{
+            font-weight: bold;
+        }
+        .text-left{
+            text-align: left;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .reveal section img{
+            border: none;
+        }
+        .font-rem3{
+            font-size: 3rem;
+            margin-bottom: 0;
+            vertical-align: sub;
+        }
+        .font-rem2{
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        pre.code{
+            word-break: break-all;
+            overflow: visible;
+            white-space: pre-wrap;
+        }
+        .note-p{
+            background-color: rgba(0, 0, 0, 0.40);
+            padding: 8px;
+            border-radius: 34px;
+            color: #fff;
+            font-size: 0.8em;
+        }
+        .smallFont{
+            font-size: 0.8em;
+        }
+        .TextShadow{
+            text-shadow: 2px 2px 4px #46beff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div style="position: absolute; top: 0; right: 0; z-index: 99999; font-size: 24px; font-weight: bold; color: #b6b6b6; ">
+    <div><label><input type="checkbox" id="barrageSwitch" checked style=" position: inherit; opacity: 1;"/></label><span id="idTimeCountdown">40:00</span></div>
+</div>
+
+<div class="reveal">
+
+    <div class="slides">
+
+        <!-- 標題 -->
+        <section data-background="img/mi.jpg" data-background-repeat="no-repeat">
+            <div style=" background-color: rgba(255, 252, 252, 0.9); padding: 36px 0;">
+            <h2 style="font-weight: bold;" class="TextShadow">致敬「米家」</h2>
+            <h3>米家就在我家</h3>
+            </div>
+        </section>
+
+        <!-- 自我介紹！？ -->
+        <section data-background="img/age-hoyo.jpg" data-background-repeat="no-repeat" data-background-size="250px" data-background-position="center left">
+            <h3>自我介紹</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">directions_walk</i> <span class="yellow-text accent-4 TextShadow" style="font-size: 1.2em;">黃</span>志賢 <span class="red-text bold">@hoyo</span>.idv.tw</li>
+                <li><i class="red-text font-rem3 material-icons">directions_walk</i> pc@hoyo.idv.tw</li>
+                <li><i class="red-text font-rem3 material-icons">directions_walk</i> GitHub <span style="font-size: 0.8em;">(https://github.com/HoyoHuang)</span></li>
+                <li><i class="red-text font-rem3 material-icons">directions_walk</i> YouTube <span style="font-size: 0.8em;">(Hoyo 的資訊生活 https://ppt.cc/fi8drx)</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>社群分享經歷</h3>
+            <ul style="font-size: 0.8em;">
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2004 酷學園 X-Box + Linux </li>
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2005 酷學園 2005 年群英會！ PHP的硬體控制術</li>
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2007 酷學園 一月主題: php 的應用 - 支援 Socket</li>
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2010 酷學園 ７月份 SA@Tainan 囉哩囉唆談「數位出版」</li>
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2012 酷學園 群英會 有影嘸！？ - 雲端“影 分身術”</li>
+                <li><i class="red-text font-rem3 material-icons">assistant</i> 2015 酷學園 7月份 SA@Tainan 愛愛上雲端</li>
+            </ul>
+        </section>
+
+        <!-- 米家 兩分 -->
+        <section>
+                <h3>今天目的 - 以小米智能插座 WiFi 版為例</h3>
+                <iframe data-autoplay width="720" height="400" src="https://www.youtube.com/embed/7eSuenG0KYI" allowfullscreen="allowfullscreen"></iframe>
+                <p><a href="https://space.bilibili.com/101540288" target="_blank">两分视频</a></p>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>看到什麼？</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">chevron_right</i> <span style="text-decoration:line-through; color: #f00;"><span style="color: #000;">小姐姐</span></span></li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 插座</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 50 人民幣 (225)</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 使用 WiFi</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 使用 APP 操作控制電源開關</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 內部溫度感測</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 定時 (主機推送不依賴 APP)、語音 (小愛同學)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>沒看到什麼？</h3>
+            <ul>
+                <li class=""><i class="red-text font-rem3 material-icons">chevron_right</i> 閘道器 ( Gateway )</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 如何設定 WiFi SSID & 密碼 ( SmartConfig )</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> SSL 傳輸加密</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">chevron_right</i> 廠商如何出貨及設計</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>彈幕發起來</h3>
+            <p class="note-p">https://hoyo.idv.tw/barrage.html</p>
+            <img src="img/barrageQRCode.png" style="height: 250px;"/>
+        </section>
+
+        <!-- 為什麼要自己做？ -->
+        <section>
+            <h3>為什麼要自己做？</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">build</i> 巛暜</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">build</i> 番號</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">build</i> 上千人在荒郊野地</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">build</i> 參加 MOPCON</li>
+            </ul>
+        </section>
+
+        <section data-background="img/NodeMCU.jpg" data-background-repeat="no-repeat" data-background-size="280px" data-background-position="center left">
+            <h3>從選擇 IoT 開始 - ESP8266</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">info_outline</i> 可用 Arduino IDE 開發的最便宜 WiFi 模組 <span style="font-size: 0.8em;">(NodeMCU NT 100)</span></li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">info_outline</i> 支援 802.11 b/g/n </li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">info_outline</i> 具備類比 I/O & 數位 I/O</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">info_outline</i> EEPROM</li>
+            </ul>
+            <p class="note-p fragment">加強版： ESP32, LinkIt 7697</p>
+        </section>
+
+        <section>
+            <h3>決定架構 - 把 IoT 設定為 AP Mode (Server)</h3>
+            <img src="img/Architecture-1.png" alt="" style="height: 350px;"/>
+        </section>
+
+        <section>
+            <h3>決定架構 - 把 IoT 設定為 AP Mode (Server)</h3>
+            <img src="img/Architecture-2.png" alt="" style="height: 350px;"/>
+            <p>IPv6 & 入侵 (連線數限制)</p>
+        </section>
+
+        <section>
+            <h3>決定架構 - 把 IoT 設定為 Client</h3>
+            <img src="img/Architecture-3.png" alt="" style="height: 350px;"/>
+        </section>
+
+        <section>
+            <h3>決定架構 - Client 也可雙向連線</h3>
+            <img src="img/client-port.png" alt="" style="height: 350px;"/>
+        </section>
+
+        <!--  -->
+        <section data-background="img/claw.png" data-background-repeat="no-repeat" data-background-size="150px" data-background-position="center left">
+            <h3>IoT 連線需求</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> 商家出貨須有辨識身份 SN (Token)</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> WiFi 連線設定方法 - SSID, Password</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> SSL 傳輸加密</li>
+            </ul>
+            <p class="note-p fragment" style="font-size: 0.8em;">小米IOT开发者大会 <span style="font-size: 0.8em; color: #ca0000; font-weight: bold;">●</span></p>
+        </section>
+
+		<!-- Arduino -->
+        <section>
+            <h3>Arduino 範例程式</h3>
+            <p class="smallFont">類 C，至少需要 setup() & loop()</p>
+            <pre class="code">// 加載、宣告
+#define LED_PIN 13
+
+// 開機只跑這麼一次
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+}
+
+// 無限迴圈 什麼時候當機什麼時候到頭
+void loop() {
+    digitalWrite(LED_PIN, HIGH);
+    delay(1000);
+    digitalWrite(LED_PIN, LOW);
+    delay(1000);
+}</pre>
+            <p class="fragment note-p">這就是為什麼要按住 reset 後再開機</p>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>Arduino - 使用 SmartConfig 設定 WiFi</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> 無螢幕 Client IoT 較佳 WiFi 設定方案</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> 將手機<span class="red-text">使用中</span>的 WiFi 資訊丟給 IoT</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">signal_wifi_4_bar_lock</i> 原理是算 UDP 封包長度，因此 APP 是必須 (Cordova + Plugin)</li>
+            </ul>
+        </section>
+
+        <!-- Demo IoT SmartConfig -->
+        <section>
+                <h3>Demo : IoT SmartConfig 設定 WiFi 及綁定</h3>
+                <iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/iiuHZhER0LU" allowfullscreen="allowfullscreen"></iframe>
+        </section>
+
+        <!-- ESP8266 SSL -->
+        <section>
+            <h3>Arduino - SSL 加密 BearSSL::setFingerprint</h3>
+
+            <pre class="code">#include &lt;ESP8266WiFi.h&gt;
+#include &lt;WiFiClientSecure.h&gt;
+
+const char fingerprint[] PROGMEM = "E7 67 DA 4F F0 7C CB 59 26 71 C8 D6 19 2B FF 89 75 A7 0C D0";
+
+WiFiClientSecure client;
+
+void setup() {
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid, password);
+    client.setFingerprint(fingerprint);
+    client.connect(host, port);
+}</pre>
+            <p class="note-p">2.5.0 後開始支援，SSL 證書更新指紋也會更新</p>
+        </section>
+
+        <section>
+            <h3>發個 X 年證書吧...</h3>
+            <img src="img/esp8266SSL.png" style="height: 350px;"/>
+        </section>
+
+        <!-- 給硬漢的建議 -->
+        <section data-background="img/hardman.png" data-background-repeat="no-repeat" data-background-size="350px" data-background-position="0 20%">
+            <h3>硬漢止步看這裡</h3>
+            <p>Google: IoT platform</p>
+            <img src="img/Image 20190604 133049.png" style="height: 300px;"/>
+            <p class="note-p">嫌麻煩的可以交給攤主處理...</p>
+        </section>
+
+        <!-- Socket Server -->
+        <section>
+            <h3>Hoyo 的選擇？ Socket Server</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">cloud_circle</i> 隔行如隔山，還是找框架吧 ...</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">cloud_circle</i> 除了 Text 傳輸最好可以支援 WebSocket ...</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">cloud_circle</i> 最好是 PHP 的 ...</li>
+            </ul>
+        </section>
+
+        <!-- 準備 Socket Server Workerman -->
+        <section data-background="img/Soft_On_Demand.png" data-background-repeat="no-repeat" data-background-size="400px" data-background-position="0 80%">
+            <h3>Socket Server - Workerman</h3>
+            <!--<img src="img/Soft_On_Demand.png" alt="" style="height: 60px;"/>-->
+            <p style="font-size: 0.8em;">Workerman 是一款开源高性能异步 <span class="red-text bold">PHP</span> socket 即时通讯框架。支持高并发，超高稳定性，被广泛的用于手机 app、移动通讯，微信小程序，手游服务端、网络游戏、PHP 聊天室、硬件通讯、智能家居、车联网、物联网等领域的开发。 支持 TCP 长连接，<span class="red-text bold">支持 Websocket、HTTP 等协议</span>，支持自定义协议。拥有异步 Mysql、异步 Redis、异步 Http、MQTT 物联网客户端、异步消息队列等众多高性能组件。</p>
+            <p class="note-p">https://www.workerman.net/</p>
+        </section>
+
+        <!-- 嚕一場 -->
+        <section data-background="img/1_1302.jpg" data-background-repeat="no-repeat" data-background-size="300px" data-background-position="center left">
+            <h3>WebSocket 範例 - 嚕阿嚕</h3>
+            <p class="note-p" style="font-family: monospace;">ppt.cc/fHElBx</p>
+            <img src="img/ruaru.png" alt="" style="height: 350px;"/>
+        </section>
+
+        <section>
+            <div style="position: relative; height: 400px;">
+            <h3>嚕阿嚕使用說明</h3>
+            <div style="text-align: left; position: absolute; left: 0;">
+                <ul>
+                    <li><i class="red-text font-rem3 material-icons">vibration</i> 三人(設備) 一組</li>
+                    <li><i class="red-text font-rem3 material-icons">vibration</i> 一人主控畫面：選擇難度 → 開新局</li>
+                    <li><i class="red-text font-rem3 material-icons">vibration</i> 另外兩人分別掃描玩家 A, 玩家 B</li>
+                    <li><i class="red-text font-rem3 material-icons">vibration</i> 準備好之後開始搖手機</li>
+                </ul>
+            </div>
+            <div style="text-align: left; position: absolute; left: 70%;">
+                <div style="text-align: right;">
+                    <img src="img/ruaruHoyo.png" style="height: 220px;"/>
+                </div>
+            </div>
+            </div>
+
+            <div style="clear: both;"></div>
+            <p class="note-p fragment">想換手機可以常玩</p>
+        </section>
+
+        <!-- Socket 難點 -->
+        <section>
+            <h3>長連結通訊難點</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">live_help</i> 通訊<span style="font-weight: bold;">協定</span>：內容自訂</li>
+                <li><i class="red-text font-rem3 material-icons">live_help</i> 設計「認人」方法</li>
+                <li><i class="red-text font-rem3 material-icons">live_help</i> 長時間逾時：斷線心跳、資料庫再連接</li>
+            </ul>
+        </section>
+
+        <!-- Socket 通訊圖 -->
+        <section>
+            <h3>通訊：一對一</h3>
+            <img src="img/socket-1.png" alt=""/>
+        </section>
+
+        <!-- Socket 通訊圖 -->
+        <section>
+            <h3>通訊：對多</h3>
+            <img src="img/socket-2.png" style="height: 350px;"/>
+            <p class="note-p">通訊對象必須自己記</p>
+        </section>
+
+        <!-- Socket 的通訊協定設計 -->
+        <section>
+            <h3>Socket 的通訊協定設計 - 以嚕阿嚕為例</h3>
+            <pre class="code">function wsSend(a,b,c,d) {
+    var command = {
+        'room': a, // 分區域
+        'player': b, // 使用者
+        'command': c, // 指令
+        'value': d, // 變數、數值
+        'checksum': 'xxxxxxx'
+    };
+    ws.send( JSON.stringify(command) );
+}</pre>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>Workerman - 基本架構</h3>
+            <pre class="code">&lt;?php
+$w = new Worker("websocket://0.0.0.0:3001");
+
+// 連接處理
+$w->onConnect = function($connection){};
+
+// 程式啟動處理 心跳推送、
+$w->onWorkerStart = function($w){};
+
+// 接收訊號處理
+$w->onMessage = function($connection, $data){};</pre>
+        </section>
+
+        <!-- Workerman 通訊協定 -->
+        <section>
+            <h3>Workerman 通訊協定切換</h3>
+            <p>WebSocket</p>
+            <pre class="code">$w = new Worker("websocket://0.0.0.0:3001");</pre>
+            <p>Text Socket</p>
+            <pre class="code">$w = new Worker("text://0.0.0.0:3001");</pre>
+        </section>
+
+        <!-- 主動推送 -->
+        <section>
+            <h3>主動推送 - Workerman</h3>
+            <pre class="code">&lt;?php
+$w->onWorkerStart = function($w)
+{
+    // 开启一个内部端口，方便内部系统推送数据，Text协议格式 文本+换行符
+    $inner_text_worker = new Worker('Text://0.0.0.0:3002');
+    $inner_text_worker->onMessage = function($connection, $buffer)
+    {
+        // $data数组格式，里面有uid，表示向那个uid的页面推送数据
+        $data = json_decode($buffer, true);
+        $uid = $data['uid'];
+        // 通过workerman，向uid的页面推送数据
+        $ret = sendMessageByUid($uid, $buffer);
+        // 返回推送结果
+        $connection->send($ret ? 'ok' : 'fail');
+    };
+    $inner_text_worker->listen();
+};</pre>
+
+            <p class="note-p">https://wenda.workerman.net/question/508</p>
+        </section>
+
+        <!-- 主動推送 -->
+        <section>
+            <h3>主動推送 - send.php</h3>
+            <pre class="code">&lt;?php
+// 建立socket连接到内部推送端口
+$client = stream_socket_client('tcp://127.0.0.1:3002', $errno, $errmsg, 1);
+// 推送的数据，包含uid字段，表示是给这个uid推送
+$data = array('uid'=>'uid1', 'percent'=>'88%');
+// 发送数据，注意 3002 端口是Text协议的端口，Text协议需要在数据末尾加上换行符
+fwrite($client, json_encode($data)."\n");
+// 读取推送结果
+echo fread($client, 8192);</pre>
+        </section>
+
+        <section>
+            <h3>Socket 架構</h3>
+            <img src="img/socket3002.png" alt="" style="height: 350px;"/>
+        </section>
+
+        <section>
+            <h3>Hoyo 怎麼做？ IoT 以外 ...</h3>
+            <ul>
+                <li><span class="TextShadow">WEB</span>
+                    <ul>
+                        <li><i class="red-text font-rem3 material-icons">personal_video</i> 商家出貨管理後台</li>
+                        <li><i class="red-text font-rem3 material-icons">personal_video</i> 使用者 Web 操作平台 (非必要)</li>
+                    </ul>
+                <li><span class="TextShadow">APP</span>
+                <ul>
+                    <li>
+                        <i class="red-text font-rem3 material-icons">personal_video</i> 使用者綁定 & 操作 APP
+                </li>
+                </ul></li>
+            </ul>
+        </section>
+
+        <!-- Demo 商家出貨 -->
+        <section>
+                <h3>Demo : 商家出貨</h3>
+                <iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/z3mgQfh3OlQ" allowfullscreen="allowfullscreen"></iframe>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>Hoyo 怎麼做？ Web - 前後端分離</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">personal_video</i> 前端：HTML, JS, CSS, jQuery, php.js<br/>php.js : js 使用 php function</li>
+                <li class="fragment" style="margin-top: 24px;"><i class="red-text font-rem3 material-icons">personal_video</i> 後端：PHP, phpQuery <br/>phpQuery : php 使用 jQuery 選擇器操作 DOM</li>
+            </ul>
+            <p class="note-p" style="font-size: 0.8em;">前端沒有 PHP ；後端沒有 HTML；php.js + jQuery + phpQuery 程式統一</p>
+        </section>
+
+        <!-- Demo 網頁操作 -->
+        <section>
+                <h3>網頁操作</h3>
+                <iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/NUOCr3MMe3A" allowfullscreen="allowfullscreen"></iframe>
+        </section>
+
+        <section>
+            <h3 style="font-size: 3.5rem;">Hoyo 怎麼做？ APP - Cordova (Android & iOS)</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">phone_android</i> 拿 Web 畫面套用</li>
+                <li><i class="red-text font-rem3 material-icons">phone_android</i> SmartConfig (cordova-plugin-smartconfig)</li>
+                <li><i class="red-text font-rem3 material-icons">phone_android</i> 目前使用 WiFi SSID & BSSID (WifiWizard)</li>
+            </ul>
+        </section>
+
+        <!-- Demo APP -->
+        <section>
+                <h3>Demo : APP 操作</h3>
+                <iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/2BwA-dKkXkg" allowfullscreen="allowfullscreen"></iframe>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>情境 - 將單一或多個動作組成 HTTP API</h3>
+            <img src="img/Situation.png" alt="" style="height: 350px;"/>
+            <!--<p class="note-p">提供給 LINE BOT / IFTTT / IoT Server 呼叫</p>-->
+        </section>
+
+        <section>
+            <h3>觸發情境的方法</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">gps_not_fixed</i> 智能音箱</li>
+                <li><i class="red-text font-rem3 material-icons">gps_not_fixed</i> 語音助理</li>
+                <li><i class="red-text font-rem3 material-icons">gps_not_fixed</i> 其他： IFTTT, Chat Bot, 密室逃脫 ...</li>
+            </ul>
+        </section>
+
+        <!-- Demo 粉紅遙控器 -->
+        <section>
+                <h3>Demo : 粉紅遙控器</h3>
+                <iframe data-autoplay width="853" height="480" src="https://www.youtube.com/embed/d_kzYdlkxXc" allowfullscreen="allowfullscreen"></iframe>
+        </section>
+
+        <!--  -->
+        <section>
+            <h3>智能音箱 & 語音助理</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">phone_android</i> 智能音箱：Server - Server</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">phone_android</i> 語音助理：助理 - APP</li>
+                <li class="fragment"><i class="red-text font-rem3 material-icons">phone_android</i> 第三方：IFTTT</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>決定架構 - 智能音箱串接</h3>
+            <img src="img/Architecture-4.png" alt="" style="height: 350px;"/>
+            <p class="note-p fragment">需要特定步驟才能在 APP 裝置清單內， ex: WF8266</p>
+        </section>
+
+        <!-- IFTTT -->
+        <section data-background="img/ifttt-banner.png" data-background-repeat="no-repeat" data-background-size="300px" data-background-position="0 80%">
+            <h3>連接情境和智能語音 - IFTTT</h3>
+            <p>IFTTT，是一個新生的網絡服務平台，通過其他不同平台的條件來決定是否執行下一條命令。即對網絡服務通過其他網絡服務作出反應。IFTTT得名為其口號「if this then that」。</p>
+            <p class="note-p">IF 「Google 助理聽到指令」 THAT 「執行 HTTP API URL」</p>
+        </section>
+
+        <!-- 加碼 -->
+        <section>
+            <h3>加碼一時賺，一直加碼一直賺</h3>
+            <ul>
+                <li><i class="red-text font-rem3 material-icons">wifi</i> WiFi AP 廣告 <a href="https://github.com/markszabo/FakeBeaconESP8266/blob/master/FakeBeaconESP8266/FakeBeaconESP8266.ino" target="_blank">FakeBeaconESP8266</a></li>
+                <li><i class="red-text font-rem3 material-icons">wifi</i> DeAuth 攻擊 <a href="https://github.com/spacehuhn/esp8266_deauther" target="_blank">esp8266_deauther</a></li>
+                <!--<li><i class="red-text font-rem3 material-icons">wifi</i> 成品修改: Sonoff</li>-->
+            </ul>
+        </section>
+
+        <!-- 關鍵字整理 -->
+        <section>
+            <div style="position: relative;">
+            <h3>關鍵字整理</h3>
+            <div style="text-align: left; position: absolute; left: 0;">
+                <div>
+                    <ul>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> <span style="font-size: 0.9em;">hoyo.idv.tw/mopcon2019</span></li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> reveal.js</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> DanMuer</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> 小米IoT开发者大会</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: left;  position: absolute; left: 50%; width: 50%;">
+                <div>
+                    <ul>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> NodeMCU ESP8266</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> Arduino</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> Workerman</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> Cordova</li>
+                        <li><i class="red-text font-rem3 material-icons">pets</i> IFTTT</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <div style="clear: both;"></div>
+
+        <section>
+                <h3>一鍵三連、打開小鈴鐺</h3>
+                <iframe data-autoplay width="720" height="400" src="https://www.youtube.com/embed/-ZQFQtLlsdA?start=20"></iframe>
+                <p>我們下次見，今天也乾爽的回家吧</p>
+        </section>
+
+        <section>
+            <h3>把把都是我說話，現在換你說了</h3>
+            <p>找到(認識) 3 個以上的梗，贈送用功的你 ESP8266 一枚！</p>
+        </section>
+
+    </div>
+</div>
+
+<script src="server.js"></script>
+<script src="js/index.js?v=4"></script>
+</body>
+</html>
